@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import com.example.exercicio_1.MostraDadosActivity
+import com.example.exercicio_1.R
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -19,14 +21,54 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun enviaDados(view: View) {
-        val textInputEditTextNome= findViewById<EditText>(R.id.TextInputEditTextNome)
-        val nome = textInputEditTextNome.text.toString()
-        val textInputEditTextEmail= findViewById<EditText>(R.id.TextInputEditTextEmail)
-        val email = textInputEditTextEmail.text.toString()
-        val textInputEditTextTelefone= findViewById<EditText>(R.id.TextInputEditTextTelefone)
-        val telefone = textInputEditTextNome.text.toString()
-        val textInputEditTextIdade= findViewById<EditText>(R.id.TextInputEditTextIdade)
-        val nome = textInputEditTextNome.text.toString()
+        val editTextNome = findViewById<EditText>(R.id.TextInputEditTextNome)
+
+        val editTextEmail= findViewById<EditText>(R.id.TextInputEditTextEmail)
+
+        val editTextTelefone= findViewById<EditText>(R.id.TextInputEditTextTelefone)
+
+        val editTextIdade= findViewById<EditText>(R.id.TextInputEditTextIdade)
+
+        val  nome = editTextNome.text.toString()
+        val email = editTextEmail.text.toString()
+        val telefone = editTextTelefone.text.toString()
+        // Normalmente deve ser pedido a data de nascimento
+        val idade = editTextIdade.text.toString().toInt()
+
+
+        var dadosCorretos = true
+
+        if(nome.isBlank())  {
+            editTextNome.error = "Porfavor introduza o nome";
+            dadosCorretos  = false
+            return
+        }
+
+        if(email.isBlank()){
+            editTextEmail.error="Por favor introduza o email"
+            dadosCorretos = false
+        }
+
+        if(telefone.isBlank()){
+            editTextEmail.error="Por favor introduza o telefone"
+            dadosCorretos = false
+        }
+
+        if(idade == null){
+            editTextEmail.error="Por favor introduza  uma dade valida"
+            dadosCorretos = false
+        }
+
+        if(dadosCorretos){
+            val intent =Intent(This,MostraDadosActivity::class.java).apply {
+                putExtra("NOME",nome)
+                putExtra("EMAIL",email)
+                putExtra("TELEFONE",telefone)
+                putExtra("IDADE",idade)
+            }
+
+            startActivity(intent)
+        }
 
 
         /*if(mensagem.trim().isBlank()){
@@ -34,13 +76,8 @@ class MainActivity : AppCompatActivity() {
             return
         }*/
 
-        val intent = Intent(this, MostraMensagemActivity::class.java).apply {
-            putExtra(INFO_EXTRA_NOME, nome )
-            putExtra(INFO_EXTRA_EMAIL, email)
-        }
 
 
-        startActivity(intent)
     }
-    TextInputEditTextNome
+
 }
