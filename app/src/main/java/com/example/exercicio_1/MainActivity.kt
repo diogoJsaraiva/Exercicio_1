@@ -10,10 +10,7 @@ import com.example.exercicio_1.R
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    companion object {
-        const val INFO_EXTRA_NOME = "MENSAGEM"
-        const val INFO_EXTRA_DATA = "DATA"
-    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,14 +58,16 @@ class MainActivity : AppCompatActivity() {
 
         if(dadosCorretos){
             val intent =Intent(This,MostraDadosActivity::class.java).apply {
-                putExtra("NOME",nome)
-                putExtra("EMAIL",email)
-                putExtra("TELEFONE",telefone)
-                putExtra("IDADE",idade)
+                putExtra(INFO_EXTRA_NOME,nome)
+                putExtra(INFO_EXTRA_EMAIL,email)
+                putExtra(INFO_EXTRA_TELEFONE,telefone)
+                putExtra(INFO_EXTRA_IDADE,idade)
             }
 
             startActivity(intent)
         }
+
+
 
 
         /*if(mensagem.trim().isBlank()){
@@ -78,6 +77,12 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    }
+    companion object {
+        const val INFO_EXTRA_NOME = "NOME"
+        const val INFO_EXTRA_TELEFONE = "TELEFONE"
+        const val INFO_EXTRA_IDADE = "IDADE"
+        const val INFO_EXTRA_EMAIL = "EMAIL"
     }
 
 }
