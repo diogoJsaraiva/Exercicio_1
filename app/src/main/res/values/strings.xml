@@ -6,4 +6,8 @@
     <string name="idade">Idade</string>
     <string name="enviar">Enviar</string>
     <string name="textview">TextView</string>
+    <string name="nome_obrigatorio">Porfavor introduza o nome</string>
+    <string name="email_obrigatorio">Por favor introduza o email</string>
+    <string name="telefone_obrigatorio">Por favor introduza o telefone</string>
+    <string name="idade_obrigatorio">Por favor introduza  uma dade valida</string>
 </resources>
