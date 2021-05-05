@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context="pt.ipg.exercicio1.MainActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -83,4 +83,4 @@
         android:text="@string/enviar"
         android:onClick="enviaDados"
         app:backgroundTint="#F44336" />
-</LinearLayout>Layout>
+</LinearLayout>
